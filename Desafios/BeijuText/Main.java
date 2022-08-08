@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 class Main {
+    
     public static void main(String[] args) {
         // coded by
         // Breno Silva
@@ -84,12 +85,12 @@ class List<E> {
     int size;
 
     public List() {
-        this.current = this.tail = this.head = new Link<>(null);
+        this.current = this.tail = this.head = new Link<E>(null);
         this.size = 0;
     }
 
     public void insert(E element) {
-        this.current.setNext(new Link<>(element, this.current.getNext()));
+        this.current.setNext(new Link<E>(element, this.current.getNext()));
         if (this.tail == this.current) {
             this.tail = this.current.getNext();
         }
