@@ -8,6 +8,11 @@ The input contains three positive integer numbers in the first line: n,  m a
 
 Write the needed number of flagstones.
 
-Input: 6 6 4
+Input: 
+<hr>
+6 6 4
+<hr>
 
-Output: 4
+Output: 
+
+4
