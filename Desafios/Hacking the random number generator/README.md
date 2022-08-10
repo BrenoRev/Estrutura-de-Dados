@@ -5,18 +5,28 @@ You recently wrote a random number generator code for a web application and now 
 NOTE: All values fit in the range of a signed integer, n, k>=1
 
 Input
+<hr>
 1st line contains n & k.
+
 2nd line contains n numbers of the set. All the n numbers are assured to be distinct.
+
+<hr>
 
 (Edited: n <= 10^5)
 
 Output
+
 One integer saying the no of pairs of numbers that have a diff k.
 
 Example
-Input:
-5 2
-1 5 3 4 2
 
+Input:
+
+<hr>
+5 2
+
+1 5 3 4 2
+<hr>
 Output:
+
 3
