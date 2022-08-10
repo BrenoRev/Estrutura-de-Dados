@@ -9,26 +9,44 @@ pre -- realize uma travessia em pré-ordem na árvore.
 in -- realize uma travessia em ordem na árvore.
 post -- realize uma travessia em pós-ordem na árvore.
 
+<hr>
+
 12
+
 insert 37
+
 insert 24
+
 insert 7
+
 insert 2
+
 insert 32
+
 insert 42
+
 insert 40
+
 insert 42
+
 insert 120
+
 pre
+
 in
+
 post
+
+<hr>
 
 SAÍDA
 
 Para cada comando pre, in ou post, imprima os números armazenados na árvore, na ordem em que foram visitados, separados por espaço.
 
 37 24 7 2 32 42 40 42 120
+
 2 7 24 32 37 40 42 42 120
+
 2 7 32 24 40 120 42 42 37
 
 ## SLIDE PARA ESTUDO 
