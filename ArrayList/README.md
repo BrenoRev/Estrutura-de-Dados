@@ -1,4 +1,4 @@
-mplemente uma lista ligada de inteiros, conforme apresentado no livro de Shaffer e durante a aula.
+Implemente uma lista ligada de inteiros, conforme apresentado no livro de Shaffer e durante a aula.
 
 ENTRADA
 
