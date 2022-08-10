@@ -8,8 +8,12 @@ The first (and the only) input line contains integer number w (1 ≤ w ≤
 
 Print YES, if the boys can divide the watermelon into two parts, each of them weighing even number of kilos; and NO in the opposite case.
 
-Input: 8
+Input: 
 
-Output: YES
+8
+
+Output: 
+
+YES
 
 Note: For example, the boys can divide the watermelon into two parts of 2 and 6 kilos respectively (another variant — two parts of 4 and 4 kilos).
