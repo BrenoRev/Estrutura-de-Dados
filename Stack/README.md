@@ -27,3 +27,6 @@ A primeira linha de saída de cada caso deve ser "Caso i:", sem aspas, onde i é
 Caso 1:
 25
 54
+
+## SLIDE PARA ESTUDO 
+https://drive.google.com/file/d/1eIPE7YKWuHKOZGF8yGJqZM5k_VNt96IR/view

@@ -36,3 +36,6 @@ Caso 1:
 1
 0
 1
+
+## SLIDE PARA ESTUDO 
+https://drive.google.com/file/d/1YEaJjmNIwypixPUME3Pxja-f_5c5NUih/view

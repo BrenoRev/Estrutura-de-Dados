@@ -103,21 +103,22 @@ Estudos baseado nos livros:
 </ul>
 
 ## Plano de Ensino
+#### Slides : https://drive.google.com/drive/u/0/folders/16Og0ScIsyLaf-NcV_NLDnIjITvDMezB-
 <ul>
-<li>Análise de algoritmos</li>
-<li>Fundamentos</li>
-<li>Complexidade assintótica</li>
-<li>Estruturas de dados básicas</li>
-<li>Arrays estáticos e dinâmicos</li>
-<li>Listas encadeadas</li>
-<li>Filas e pilhas</li>
-<li>Busca e ordenação em estruturas de dados lineares</li>
-<li>Busca linear e busca binárias</li>
-<li>Mergesort</li>
-<li>Quicksort</li>
-<li>Tabelas de dispersão</li>
-<li>Árvores</li>
-<li>Árvores binárias de busca</li>
+<li>Análise de algoritmos</li>  :white_check_mark:
+<li>Fundamentos</li> :white_check_mark:
+<li>Complexidade assintótica</li> :white_check_mark:
+<li>Estruturas de dados básicas</li> :white_check_mark:
+<li>Arrays estáticos e dinâmicos</li> :white_check_mark:
+<li>Listas encadeadas</li> :white_check_mark:
+<li>Filas e pilhas</li> :white_check_mark:
+<li>Busca e ordenação em estruturas de dados lineares</li> :white_check_mark:
+<li>Busca linear e busca binárias</li> :white_check_mark:
+<li>Mergesort</li> :white_check_mark:
+<li>Quicksort</li> :white_check_mark:
+<li>Tabelas de dispersão</li> :white_check_mark:
+<li>Árvores</li> :white_check_mark:
+<li>Árvores binárias de busca</li> :white_check_mark:
 <li>Árvores AVL</li>
 <li>Heaps e heapsort</li>
 <li>Estruturas para relações de equivalência</li>

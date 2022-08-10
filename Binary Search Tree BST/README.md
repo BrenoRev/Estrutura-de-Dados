@@ -30,3 +30,6 @@ Para cada comando pre, in ou post, imprima os números armazenados na árvore, n
 37 24 7 2 32 42 40 42 120
 2 7 24 32 37 40 42 42 120
 2 7 32 24 40 120 42 42 37
+
+## SLIDE PARA ESTUDO 
+https://drive.google.com/file/d/1aWAwg4-rgJuKCEVDH9tWLV9-hi3wIr3v/view
