@@ -105,20 +105,20 @@ Estudos baseado nos livros:
 ## Plano de Ensino
 #### Slides : https://drive.google.com/drive/u/0/folders/16Og0ScIsyLaf-NcV_NLDnIjITvDMezB-
 <ul>
-<li>Análise de algoritmos</li>  :white_check_mark:
-<li>Fundamentos</li> :white_check_mark:
-<li>Complexidade assintótica</li> :white_check_mark:
-<li>Estruturas de dados básicas</li> :white_check_mark:
-<li>Arrays estáticos e dinâmicos</li> :white_check_mark:
-<li>Listas encadeadas</li> :white_check_mark:
-<li>Filas e pilhas</li> :white_check_mark:
-<li>Busca e ordenação em estruturas de dados lineares</li> :white_check_mark:
-<li>Busca linear e busca binárias</li> :white_check_mark:
-<li>Mergesort</li> :white_check_mark:
-<li>Quicksort</li> :white_check_mark:
-<li>Tabelas de dispersão</li> :white_check_mark:
-<li>Árvores</li> :white_check_mark:
-<li>Árvores binárias de busca</li> :white_check_mark:
+<li>Análise de algoritmos :white_check_mark:</li>  
+<li>Fundamentos :white_check_mark:</li>
+<li>Complexidade assintótica :white_check_mark:</li>
+<li>Estruturas de dados básicas :white_check_mark:</li>
+<li>Arrays estáticos e dinâmicos :white_check_mark:</li>
+<li>Listas encadeadas :white_check_mark:</li>
+<li>Filas e pilhas :white_check_mark:</li>
+<li>Busca e ordenação em estruturas de dados lineares :white_check_mark:</li>
+<li>Busca linear e busca binárias :white_check_mark:</li>
+<li>Mergesort :white_check_mark:</li>
+<li>Quicksort :white_check_mark:</li>
+<li>Tabelas de dispersão :white_check_mark:</li>
+<li>Árvores :white_check_mark:</li>
+<li>Árvores binárias de busca</li>
 <li>Árvores AVL</li>
 <li>Heaps e heapsort</li>
 <li>Estruturas para relações de equivalência</li>
