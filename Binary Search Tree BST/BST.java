@@ -1,7 +1,7 @@
 package Main;
 
 public class BST<E, V> implements IBST<E, V> {
-    private BSTNode<E,V> root;
+    private BSTNode<E, V> root;
     private int nodeCount;
 
     public BST() {
@@ -16,18 +16,17 @@ public class BST<E, V> implements IBST<E, V> {
 
     @Override
     public V findHelp(BSTNode<E, V> rt, E key) {
-       if(rt == null) {
-           return null;
-       }
+        if (rt == null) {
+            return null;
+        }
 
-        if(Integer.parseInt(this.root.getKey().toString()) > Integer.parseInt(key.toString())) {
+        if (Integer.parseInt(rt.getKey().toString()) > Integer.parseInt(key.toString())) {
             return this.findHelp(rt.getLeft(), key);
-       }
-       else if(rt.getKey() == key) {
-           return rt.getElement();
-       } else {
-           return findHelp(rt.getRight(), key);
-       }
+        } else if (rt.getKey() == key) {
+            return rt.getElement();
+        } else {
+            return findHelp(rt.getRight(), key);
+        }
     }
 
     @Override
@@ -38,11 +37,11 @@ public class BST<E, V> implements IBST<E, V> {
 
     @Override
     public BSTNode<E, V> insertHelp(BSTNode<E, V> rt, E key, V value) {
-        if(rt == null) {
+        if (rt == null) {
             return new BSTNode<>(key, value);
         }
 
-        if(Integer.parseInt(rt.getKey().toString()) > Integer.parseInt(key.toString())) {
+        if (Integer.parseInt(rt.getKey().toString()) > Integer.parseInt(key.toString())) {
             rt.setLeft(insertHelp(rt.getLeft(), key, value));
         } else {
             rt.setRight(insertHelp(rt.getRight(), key, value));
@@ -54,7 +53,7 @@ public class BST<E, V> implements IBST<E, V> {
     @Override
     public V remove(BST<E, V> bst, E key) {
         V temporary = findHelp(bst.root, key);
-        if(temporary != null) {
+        if (temporary != null) {
             bst.root = removeHelp(bst.root, key);
             this.nodeCount--;
         }
@@ -63,34 +62,34 @@ public class BST<E, V> implements IBST<E, V> {
 
     @Override
     public BSTNode<E, V> removeHelp(BSTNode<E, V> rt, E key) {
-        if(rt == null) {
-            return null;
-        }
+        int rtKey = Integer.parseInt(rt.getKey().toString());
+        int eKey = Integer.parseInt(key.toString());
 
-        if(Integer.parseInt(this.root.getKey().toString()) > Integer.parseInt(key.toString())) {
-            rt.setLeft(removeHelp(rt.getLeft(), key));
+        if (rt != null) {
+            if (rtKey > eKey) {
+                rt.setLeft(removeHelp(rt.getLeft(), key));
+            } else if (rtKey < eKey) {
+                rt.setRight(removeHelp(rt.getRight(), key));
+            } else {
+                if (rt.getLeft() == null) {
+                    return rt.getRight();
+                } else if (rt.getRight() == null) {
+                    return rt.getLeft();
+                } else {
+                    BSTNode<E, V> temporary = getMin(rt.getRight());
+                    rt.setElement(temporary.getElement());
+                    rt.setKey(temporary.getKey());
+                    rt.setRight(deleteMin(rt.getRight()));
+                }
+            }
         }
-        else if(Integer.parseInt(this.root.getKey().toString()) < Integer.parseInt(key.toString())) {
-            rt.setRight(removeHelp(rt.getRight(), key));
-        } else {
-          if(rt.getLeft() == null) {
-              return rt.getRight();
-          } else if(rt.getRight() == null) {
-              return rt.getLeft();
-          } else {
-              BSTNode<E, V> temporary = getMin(rt.getRight());
-              rt.setElement(temporary.getElement());
-              rt.setKey(temporary.getKey());
-              rt.setRight(deleteMin(rt.getRight()));
-          }
-        }
-
         return rt;
+
     }
 
     @Override
     public BSTNode<E, V> deleteMin(BSTNode<E, V> rt) {
-        if(rt.getLeft() == null) {
+        if (rt.getLeft() == null) {
             return rt;
         }
 
@@ -99,8 +98,8 @@ public class BST<E, V> implements IBST<E, V> {
 
     @Override
     public void preOrder(BSTNode<E, V> rt) {
-        if(rt != null) {
-            //  imprima os números armazenados na árvore, na ordem em que foram visitados, separados por espaço;
+        if (rt != null) {
+            System.out.print(rt.getElement() + " ");
             preOrder(rt.getLeft());
             preOrder(rt.getRight());
         }
@@ -108,26 +107,25 @@ public class BST<E, V> implements IBST<E, V> {
 
     @Override
     public void inOrder(BSTNode<E, V> rt) {
-        if(rt != null) {
-            //  imprima os números armazenados na árvore, na ordem em que foram visitados, separados por espaço.
-            System.out.println(root.getKey());
+        if (rt != null) {
             inOrder(rt.getLeft());
+            System.out.print(rt.getElement() + " ");
             inOrder(rt.getRight());
         }
     }
 
     @Override
-    public void posOrder(BSTNode<E, V> rt) {
-        if(rt != null) {
-            //  imprima os números armazenados na árvore, na ordem em que foram visitados, separados por espaço.
-            posOrder(rt.getLeft());
-            posOrder(rt.getRight());
+    public void postOrder(BSTNode<E, V> rt) {
+        if (rt != null) {
+            postOrder(rt.getLeft());
+            postOrder(rt.getRight());
+            System.out.print(rt.getElement() + " ");
         }
     }
 
     @Override
     public BSTNode<E, V> getMin(BSTNode<E, V> rt) {
-        if(rt.getLeft() == null) {
+        if (rt.getLeft() == null) {
             return rt.getRight();
         }
 

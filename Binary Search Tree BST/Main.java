@@ -20,15 +20,12 @@ public class Main {
                     int value = reader.nextInt();
                     map.insert(map, map.getNodeCount(), value);
                 } else if(input.equals("pre")) {
-                    //  Realize uma travessia em pré-ordem na árvore.
                     map.preOrder(map.getRoot());
                 }
                 else if(input.equals("in")) {
-                    //  Realize uma travessia em ordem na árvore.
                     map.inOrder(map.getRoot());
                 } else if(input.equals("post")) {
-                    // Realize uma travessia em pós-ordem na árvore.
-                    map.posOrder(map.getRoot());
+                    map.postOrder(map.getRoot());
                 }
             }
     }

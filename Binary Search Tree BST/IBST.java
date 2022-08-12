@@ -21,6 +21,6 @@ public interface IBST<E, V> {
 
     void inOrder(BSTNode<E, V> rt);
 
-    void posOrder(BSTNode<E, V> rt);
+    void postOrder(BSTNode<E, V> rt);
 
 }
