@@ -18,7 +18,7 @@ public class Main {
                 String input = reader.next();
                 if(input.equals("insert")) {
                     int value = reader.nextInt();
-                    map.insert(map, map.getNodeCount(), value);
+                    map.insert(map, value, value);
                 } else if(input.equals("pre")) {
                     map.preOrder(map.getRoot());
                 }

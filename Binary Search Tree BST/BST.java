@@ -41,7 +41,10 @@ public class BST<E, V> implements IBST<E, V> {
             return new BSTNode<>(key, value);
         }
 
-        if (Integer.parseInt(rt.getKey().toString()) > Integer.parseInt(key.toString())) {
+        int binaryKeyValue = Integer.parseInt(rt.getKey().toString());
+        int keyValue = Integer.parseInt(key.toString());
+
+        if (binaryKeyValue > keyValue) {
             rt.setLeft(insertHelp(rt.getLeft(), key, value));
         } else {
             rt.setRight(insertHelp(rt.getRight(), key, value));
@@ -62,13 +65,13 @@ public class BST<E, V> implements IBST<E, V> {
 
     @Override
     public BSTNode<E, V> removeHelp(BSTNode<E, V> rt, E key) {
-        int rtKey = Integer.parseInt(rt.getKey().toString());
-        int eKey = Integer.parseInt(key.toString());
 
         if (rt != null) {
-            if (rtKey > eKey) {
+            int binaryKeyValue = Integer.parseInt(rt.getKey().toString());
+            int keyValue = Integer.parseInt(key.toString());
+            if (binaryKeyValue > keyValue) {
                 rt.setLeft(removeHelp(rt.getLeft(), key));
-            } else if (rtKey < eKey) {
+            } else if (binaryKeyValue < keyValue) {
                 rt.setRight(removeHelp(rt.getRight(), key));
             } else {
                 if (rt.getLeft() == null) {
