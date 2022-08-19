@@ -13,67 +13,54 @@ public class Main {
         FastReader reader = new FastReader();
         BST<Integer, Integer> map = new BST<Integer, Integer>();
 
-            int operations = reader.nextInt();
-            for(int indexJ = 0; indexJ < operations; indexJ++) {
-                String input = reader.next();
-                if(input.equals("insert")) {
-                    int value = reader.nextInt();
-                    map.insert(map, value, value);
-                } else if(input.equals("pre")) {
-                    map.preOrder(map.getRoot());
-                }
-                else if(input.equals("in")) {
-                    map.inOrder(map.getRoot());
-                } else if(input.equals("post")) {
-                    map.postOrder(map.getRoot());
-                }
-            }
     }
 
-    static class FastReader {
-        BufferedReader br;
-        StringTokenizer st;
 
-        public FastReader() {
-            br = new BufferedReader(
-                    new InputStreamReader(System.in));
-        }
+static class FastReader {
+    BufferedReader br;
+    StringTokenizer st;
 
-        String next() {
-            while (st == null || !st.hasMoreElements()) {
-                try {
-                    st = new StringTokenizer(br.readLine());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            return st.nextToken();
-        }
+    public FastReader() {
+        br = new BufferedReader(
+                new InputStreamReader(System.in));
+    }
 
-        int nextInt() {
-            return Integer.parseInt(next());
-        }
-
-        long nextLong() {
-            return Long.parseLong(next());
-        }
-
-        double nextDouble() {
-            return Double.parseDouble(next());
-        }
-
-        String nextLine() {
-            String str = "";
+    String next() {
+        while (st == null || !st.hasMoreElements()) {
             try {
-                if (st.hasMoreTokens()) {
-                    str = st.nextToken("\n");
-                } else {
-                    str = br.readLine();
-                }
+                st = new StringTokenizer(br.readLine());
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return str;
         }
+        return st.nextToken();
     }
+
+    int nextInt() {
+        return Integer.parseInt(next());
+    }
+
+    long nextLong() {
+        return Long.parseLong(next());
+    }
+
+    double nextDouble() {
+        return Double.parseDouble(next());
+    }
+
+    String nextLine() {
+        String str = "";
+        try {
+            if (st.hasMoreTokens()) {
+                str = st.nextToken("\n");
+            } else {
+                str = br.readLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return str;
+    }
+}
+
 }
