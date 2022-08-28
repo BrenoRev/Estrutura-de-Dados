@@ -50,19 +50,25 @@ public class BST<E, V> implements IBST<E, V> {
             rt.setRight(insertHelp(rt.getRight(), key, value));
         }
 
-        rt.setHeight(1 + Math.max(height(rt.getLeft()), height(rt.getRight()))); 
-        
+        rt.setHeight(1 + Math.max(height(rt.getLeft()), height(rt.getRight())));
+
         int balance = getBalance(rt);
-        if(balance < -1 && balance > (int) rt.getRight().getKey()) {
+
+        if (balance < -1 && (int) key >= (int) rt.getRight().getKey()) {
             return leftRotate(rt);
         }
 
-        if(balance > 1 && (int) key < (int) rt.getLeft().getKey()) {
+        if (balance > 1 && (int) key < (int) rt.getLeft().getKey()) {
             return rightRotate(rt);
         }
 
-        if(balance > 1 && (int) key >= (int) rt.getLeft().getKey()) {
-            rt.setLeft(rightRotate(rt.getRight()));
+        if (balance > 1 && (int) key >= (int) rt.getLeft().getKey()) {
+            rt.setLeft(leftRotate(rt.getLeft()));
+            return rightRotate(rt);
+        }
+
+        if (balance < -1 && (int) key < (int) rt.getRight().getKey()) {
+            rt.setRight(rightRotate(rt.getRight()));
             return leftRotate(rt);
         }
 
@@ -202,5 +208,5 @@ public class BST<E, V> implements IBST<E, V> {
     public void setNodeCount(int nodeCount) {
         this.nodeCount = nodeCount;
     }
-    
+
 }
