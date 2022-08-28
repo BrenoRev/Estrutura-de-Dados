@@ -16,19 +16,20 @@ public class Main {
         int operations = reader.nextInt();
 
         for(int index = 0; index < operations; index++) {
-            String command = reader.next();
-            if(command.equals("insert")){
+            int command = reader.nextInt();
+            if(command == 1){
                 int value = reader.nextInt();
                 avlTree.insert(avlTree, value, value);
             }
-            else if(command.equals("pre")){
-                avlTree.preOrder(avlTree.getRoot());
-            }
-            else if(command.equals("in")){
-                avlTree.inOrder(avlTree.getRoot());
-            }
-            else if(command.equals("post")){
-                avlTree.postOrder(avlTree.getRoot());
+            else if(command == 2){
+                int findKey = reader.nextInt();
+                Integer result = avlTree.find(avlTree, findKey);
+                if(result == null) {
+                    System.out.println("Data tidak ada");
+                }
+                else {
+                    System.out.println(result);
+                }
             }
         }
         
