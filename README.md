@@ -115,6 +115,15 @@ Estudos baseado nos livros:
   <h4>https://coggle.it/diagram/Yvpy6LndxQl8uGpz/t/m9/d8ed399f162b900563ddf3bac411f610ee6fa6fc8713088e8d4bdab09480e313</h4>
 </ul>
 
+<ul>
+ <li>Estudo: Levitin – Cap. 6 (226–232)
+ </li>
+ <li>
+  Estudo: Shaffer – Cap. 5 (170–177) + 7 (243–244)
+ </li>
+  <h4>https://coggle.it/diagram/YwOl5-PT1iLZFmnk/t/avl/43e84704fb4cca600a7e4833ae0178ea6a432e171f061ac5bfa930248fd2f7be</h4>
+</ul>
+
 ## Plano de Ensino
 #### Slides : https://drive.google.com/drive/u/0/folders/16Og0ScIsyLaf-NcV_NLDnIjITvDMezB-
 <ul>
@@ -132,8 +141,8 @@ Estudos baseado nos livros:
 <li>Tabelas de dispersão :white_check_mark:</li>
 <li>Árvores :white_check_mark:</li>
 <li>Árvores binárias de busca :white_check_mark:</li>
-<li>Árvores AVL</li>
-<li>Heaps e heapsort</li>
+<li>Árvores AVL :white_check_mark:</li>
+<li>Heaps e heapsort :white_check_mark:</li>
 <li>Estruturas para relações de equivalência</li>
 <li>Grafos</li>
 <li>Busca em profundidade e busca em largura</li>
