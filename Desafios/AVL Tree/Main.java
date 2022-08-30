@@ -6,10 +6,11 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 class Main {
+    static int count = 0;
     public static void main(String[] args) {
         // coded by
         // Breno Silva
-
+        
         FastReader reader = new FastReader();
         BST avlTree = new BST();
 
@@ -23,15 +24,14 @@ class Main {
             }
             else if(command == 2){
                 int findKey = reader.nextInt();
-                Integer result = avlTree.find(avlTree, findKey);
-                if(result == null) {
+                boolean exists = avlTree.inOrder(avlTree.getRoot(), findKey);
+                if(!exists) {
                     System.out.println("Data tidak ada");
                 }
-                else {
-                    System.out.println(result);
-                }
+                count = 0;
             }
         }
+
         
     }
 
@@ -297,12 +297,17 @@ static class BST{
         }
     }
 
-    void inOrder(BSTNode rt) {
+    boolean inOrder(BSTNode rt, Integer valueToFind) {
         if (rt != null) {
-            inOrder(rt.getLeft());
-            System.out.print(rt.getElement() + " ");
-            inOrder(rt.getRight());
+            inOrder(rt.getLeft(), valueToFind);
+            count++;
+            if(valueToFind == rt.getElement()) {
+                System.out.println(count);
+                return true;
+            }
+            inOrder(rt.getRight(), valueToFind);
         }
+        return false;
     }
 
     void postOrder(BSTNode rt) {
