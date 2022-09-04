@@ -1,45 +1,36 @@
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Objects;
 import java.util.StringTokenizer;
 
 class Main {
-    static int count = 0;
     public static void main(String[] args) {
         // coded by
         // Breno Silva
-        StringBuilder sb = new StringBuilder();
+
         FastReader reader = new FastReader();
-        BST avlTree = new BST();
+        AVL tree = new AVL();
+        StringBuilder sb = new StringBuilder();
 
-        int operations = reader.nextInt();
+        int quantityInputs = reader.nextInt();
+        for (int i = 0; i < quantityInputs; i++) {
+            int option = reader.nextInt();
+            int value = reader.nextInt();
 
-        for(int index = 0; index < operations; index++) {
-            int command = reader.nextInt();
-            if(command == 1){
-                int value = reader.nextInt();
-                avlTree.insert(avlTree, value, value);
-            }
-            else if(command == 2){
-                int findKey = reader.nextInt();
-                Integer returnedIndex = avlTree.inOrder(avlTree.getRoot(), findKey);
-                if(returnedIndex != -1){
-                    sb.append(returnedIndex + "\n");
-                } else {
+            if (option == 1) {
+                tree.insertAuxiliar(value);
+            } else {
+                value = tree.nodeFinder(tree.getRoot(), value, 1);
+                if (value == 0) {
                     sb.append("Data tidak ada\n");
+                } else {
+                    sb.append(value + "\n");
                 }
-                count = 0;
             }
         }
 
         System.out.println(sb);
-
-
     }
-
 
     static class FastReader {
         BufferedReader br;
@@ -90,265 +81,138 @@ class Main {
 
     static class BSTNode {
 
-        private Integer key;
-        private Integer element;
-        private BSTNode left;
-        private BSTNode right;
-        private int height;
+        int element, children;
+        BSTNode left, right;
+        int height;
 
-        public BSTNode(Integer key, Integer value) {
-            this.key = key;
-            this.element = value;
-            this.left = this.right = null;
+        public BSTNode(int aux) {
+            this.element = aux;
             this.height = 0;
+            this.children = 0;
         }
-
-        Integer getKey() {
-            return key;
-        }
-
-        void setKey(Integer key) {
-            this.key = key;
-        }
-
-        Integer getElement() {
-            return element;
-        }
-
-        void setElement(Integer element) {
-            this.element = element;
-        }
-
-        BSTNode getLeft() {
-            return left;
-        }
-
-        void setLeft(BSTNode left) {
-            this.left = left;
-        }
-
-        BSTNode getRight() {
-            return right;
-        }
-
-        void setRight(BSTNode right) {
-            this.right = right;
-        }
-
-        int getHeight() {
-            return height;
-        }
-
-        void setHeight(int height) {
-            this.height = height;
-        }
-
-
     }
 
-    static class BST{
+    static class AVL {
         static BSTNode root;
-        static int nodeCount;
 
-        BST() {
+        public AVL() {
             this.root = null;
-            this.nodeCount = 0;
         }
 
-        Integer find(BST bst, Integer key) {
-            return findHelp(bst.root, key);
-        }
-
-        static Integer findHelp(BSTNode rt, Integer key) {
-            if (rt == null) {
-                return null;
-            }
-
-            if (Integer.parseInt(rt.getKey().toString()) > Integer.parseInt(key.toString())) {
-                return findHelp(rt.getLeft(), key);
-            } else if (rt.getKey() == key) {
-                return rt.getElement();
-            } else {
-                return findHelp(rt.getRight(), key);
-            }
-        }
-
-        void insert(BST bst, Integer key, Integer value) {
-            this.setRoot(insertHelp(bst.root, key, value));
-            this.nodeCount++;
-        }
-
-        static BSTNode insertHelp(BSTNode rt, Integer key, Integer value) {
-            if (rt == null) {
-                return new BSTNode(key, value);
-            }
-
-            int binaryKeyValue = Integer.parseInt(rt.getKey().toString());
-            int keyValue = Integer.parseInt(key.toString());
-
-            if (binaryKeyValue > keyValue) {
-                rt.setLeft(insertHelp(rt.getLeft(), key, value));
-            } else {
-                rt.setRight(insertHelp(rt.getRight(), key, value));
-            }
-
-            rt.setHeight(1 + Math.max(height(rt.getLeft()), height(rt.getRight())));
-
-            int balance = getBalance(rt);
-
-            if (balance < -1 && (int) key >= (int) rt.getRight().getKey()) {
-                return leftRotate(rt);
-            }
-
-            if (balance > 1 && (int) key < (int) rt.getLeft().getKey()) {
-                return rightRotate(rt);
-            }
-
-            if (balance > 1 && (int) key >= (int) rt.getLeft().getKey()) {
-                rt.setLeft(leftRotate(rt.getLeft()));
-                return rightRotate(rt);
-            }
-
-            if (balance < -1 && (int) key < (int) rt.getRight().getKey()) {
-                rt.setRight(rightRotate(rt.getRight()));
-                return leftRotate(rt);
-            }
-
-            return rt;
-        }
-
-        static int getBalance(BSTNode rt) {
-            if (rt == null) {
-                return 0;
-            }
-            return height(rt.getLeft()) - height(rt.getRight());
-        }
-
-        static int height(BSTNode rt) {
-            if (rt == null) {
+        public int getHeight(BSTNode root) {
+            if (root == null) {
                 return -1;
             }
-            return rt.getHeight();
+            ;
+
+            return root.height;
         }
 
-        static BSTNode rightRotate(BSTNode rt) {
-            BSTNode left = rt.getLeft();
-            BSTNode leftRight = left.getRight();
-            left.setRight(rt);
-            rt.setLeft(leftRight);
-            rt.setHeight(1 + Math.max(height(rt.getLeft()), height(rt.getRight())));
-            left.setHeight(1 + Math.max(height(left.getLeft()), height(left.getRight())));
-            return left;
-        }
-
-        static BSTNode leftRotate(BSTNode rt) {
-            BSTNode right = rt.getRight();
-            BSTNode rightLeft = right.getLeft();
-            right.setLeft(rt);
-            rt.setRight(rightLeft);
-            rt.setHeight(1 + Math.max(height(rt.getLeft()), height(rt.getRight())));
-            right.setHeight(1 + Math.max(height(right.getLeft()), height(right.getRight())));
-            return right;
-        }
-
-        static Integer remove(BST bst, Integer key) {
-            Integer temporary = findHelp(bst.root, key);
-            if (temporary != null) {
-                bst.root = removeHelp(bst.root, key);
-                nodeCount--;
-            }
-            return temporary;
-        }
-
-        static BSTNode removeHelp(BSTNode rt, Integer key) {
-
-            if (rt != null) {
-                int binaryKeyValue = Integer.parseInt(rt.getKey().toString());
-                int keyValue = Integer.parseInt(key.toString());
-                if (binaryKeyValue > keyValue) {
-                    rt.setLeft(removeHelp(rt.getLeft(), key));
-                } else if (binaryKeyValue < keyValue) {
-                    rt.setRight(removeHelp(rt.getRight(), key));
-                } else {
-                    if (rt.getLeft() == null) {
-                        return rt.getRight();
-                    } else if (rt.getRight() == null) {
-                        return rt.getLeft();
-                    } else {
-                        BSTNode temporary = getMin(rt.getRight());
-                        rt.setElement(temporary.getElement());
-                        rt.setKey(temporary.getKey());
-                        rt.setRight(deleteMin(rt.getRight()));
-                    }
-                }
-            }
-            return rt;
-
-        }
-
-        static BSTNode deleteMin(BSTNode rt) {
-            if (rt.getLeft() == null) {
-                return rt;
+        public int getChildren(BSTNode root) {
+            if (root == null) {
+                return 0;
             }
 
-            return getMin(rt.getLeft());
+            return root.children + 1;
         }
 
-        void preOrder(BSTNode rt) {
-            if (rt != null) {
-                System.out.print(rt.getElement() + " ");
-                preOrder(rt.getLeft());
-                preOrder(rt.getRight());
+        public int maxHeight(int auxiliar1, int auxiliar2) {
+            return (auxiliar1 > auxiliar2) ? auxiliar1 : auxiliar2;
+        }
+
+        public BSTNode rightRotate(BSTNode root) {
+            BSTNode auxiliarLeft = root.left;
+            BSTNode auxiliarRight = auxiliarLeft.right;
+
+            auxiliarLeft.right = root;
+            root.left = auxiliarRight;
+            root.height = maxHeight(getHeight(root.left), getHeight(root.right)) + 1;
+            root.children = getChildren(root.right) + getChildren(root.left);
+            auxiliarLeft.height = maxHeight(getHeight(auxiliarLeft.left), getHeight(auxiliarLeft.right)) + 1;
+            auxiliarLeft.children = getChildren(auxiliarLeft.right) + getChildren(auxiliarLeft.left);
+            return auxiliarLeft;
+        }
+
+        public BSTNode leftRotate(BSTNode root) {
+            BSTNode auxiliarRight = root.right;
+            BSTNode auxiliarLeft = auxiliarRight.left;
+
+            auxiliarRight.left = root;
+            root.right = auxiliarLeft;
+            root.height = maxHeight(getHeight(root.left), getHeight(root.right)) + 1;
+            root.children = getChildren(root.right) + getChildren(root.left);
+            auxiliarRight.height = maxHeight(getHeight(auxiliarRight.left), getHeight(auxiliarRight.right)) + 1;
+            auxiliarRight.children = getChildren(auxiliarRight.right) + getChildren(auxiliarRight.left);
+            return auxiliarRight;
+        }
+
+        public int nodeFinder(BSTNode current, int auxiliar, int contador) {
+            if (current == null)
+                return 0;
+            else if (current != null && auxiliar < current.element) {
+                return nodeFinder(current.left, auxiliar, contador);
+            } else if (auxiliar > current.element) {
+                return nodeFinder(current.right, auxiliar, contador + getChildren(current.left) + 1);
+            } else {
+                contador += getChildren(current.left);
+                return contador;
             }
         }
 
-        Integer inOrder(BSTNode rt, Integer valueToFind) {
-            if (rt != null) {
-                inOrder(rt.getLeft(), valueToFind);
-                count++;
-                if(Objects.equals(valueToFind, rt.getElement())) {
-                    return count;
-                }
-                inOrder(rt.getRight(), valueToFind);
-            }
-            return -1;
-        }
-
-        void postOrder(BSTNode rt) {
-            if (rt != null) {
-                postOrder(rt.getLeft());
-                postOrder(rt.getRight());
-                System.out.print(rt.getElement() + " ");
-            }
-        }
-
-        static BSTNode getMin(BSTNode rt) {
-            if (rt.getLeft() == null) {
-                return rt.getRight();
+        int getBalance(BSTNode root) {
+            if (root == null) {
+                return 0;
             }
 
-            rt.setLeft(deleteMin(rt.getLeft()));
-
-            return rt;
+            return getHeight(root.left) - getHeight(root.right);
         }
 
-        BSTNode getRoot() {
+        public BSTNode insert(BSTNode root, int auxiliar) {
+            if (root == null) {
+                return new BSTNode(auxiliar);
+            }
+
+            if (auxiliar <= root.element) {
+                root.left = insert(root.left, auxiliar);
+            } else if (auxiliar > root.element) {
+                root.right = insert(root.right, auxiliar);
+            } else {
+                return root;
+            }
+
+            root.height = maxHeight(getHeight(root.left), getHeight(root.right)) + 1;
+            root.children = getChildren(root.right) + getChildren(root.left);
+            int balance = getBalance(root);
+
+            if (balance > 1 && auxiliar < root.left.element) {
+                return rightRotate(root);
+            }
+
+            if (balance < -1 && auxiliar > root.right.element) {
+                return leftRotate(root);
+            }
+
+            if (balance > 1 && auxiliar > root.left.element) {
+                root.left = leftRotate(root.left);
+                return rightRotate(root);
+            }
+
+            if (balance < -1 && auxiliar < root.right.element) {
+                root.right = rightRotate(root.right);
+                return leftRotate(root);
+            }
+
             return root;
         }
 
-        void setRoot(BSTNode root) {
-            this.root = root;
+        public BSTNode getRoot() {
+            return this.root;
         }
 
-        int getNodeCount() {
-            return nodeCount;
-        }
-
-        void setNodeCount(int nodeCount) {
-            this.nodeCount = nodeCount;
+        public void insertAuxiliar(int auxiliar) {
+            root = insert(getRoot(), auxiliar);
         }
 
     }
-
 
 }
