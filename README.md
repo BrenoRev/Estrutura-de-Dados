@@ -153,8 +153,8 @@ Estudos baseado nos livros:
 <li>Árvores binárias de busca :white_check_mark:</li>
 <li>Árvores AVL :white_check_mark:</li>
 <li>Heaps e heapsort :white_check_mark:</li>
-<li>Estruturas para relações de equivalência :white_check_mark</li>
-<li>Grafos</li>
+<li>Estruturas para relações de equivalência :white_check_mark:</li>
+<li>Grafos :white_check_mark:</li>
 <li>Busca em profundidade e busca em largura</li>
 <li>Caminhos mínimos (Dijkstra, Bellman-Ford, Floyd-Warshall)</li>
 <li>Árvores geradoras de custo mínimo (Prim, Kruskal)</li>
