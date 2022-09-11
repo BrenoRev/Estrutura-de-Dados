@@ -124,6 +124,8 @@ Estudos baseado nos livros:
   <h4>https://coggle.it/diagram/YwOl5-PT1iLZFmnk/t/avl/43e84704fb4cca600a7e4833ae0178ea6a432e171f061ac5bfa930248fd2f7be</h4>
 </ul>
 
+<hr>
+
 <ul>
  <li>
   Estudo: Levitin – Cap. 1 (28–31) + 3 (122–128) + 4 (138–141)
