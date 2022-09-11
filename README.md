@@ -124,6 +124,16 @@ Estudos baseado nos livros:
   <h4>https://coggle.it/diagram/YwOl5-PT1iLZFmnk/t/avl/43e84704fb4cca600a7e4833ae0178ea6a432e171f061ac5bfa930248fd2f7be</h4>
 </ul>
 
+<ul>
+ <li>
+  Estudo: Levitin – Cap. 1 (28–31) + 3 (122–128) + 4 (138–141)
+ </li>
+ <li>
+  Estudo: Shaffer – Cap. 11 (371–388)
+ </li>
+  <h4>https://coggle.it/diagram/Yx4jZHjkbLZ-OVRv/t/-/263b5fb04ae20782c809e64ad48dc32b3e53923f3f612a6d0456e65cc7fe95fc</h4>
+</ul>
+
 ## Plano de Ensino
 #### Slides : https://drive.google.com/drive/u/0/folders/16Og0ScIsyLaf-NcV_NLDnIjITvDMezB-
 <ul>
