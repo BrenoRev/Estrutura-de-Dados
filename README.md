@@ -149,6 +149,31 @@ Estudos baseado nos livros:
   <h4>https://coggle.it/diagram/YyPybECwZkiUe5He/t/-/4d99822d40e227bf89e82dd887448dc8a2773f5b9309f96f21c7c735cba5b623</h4>
 </ul>
 
+<hr>
+
+<ul>
+ <li>
+  Estudo: Levitin – Cap. 8 (308–311)
+ </li>
+ <li>
+  Estudo: Shaffer – Cap. 16 (513–515)
+ </li>
+  <h4>https://coggle.it/diagram/Yyr1jHjkbLZ-6oYZ/t/-/2f4a89ea09c5adb726cf38330158550d64cb0bc169a7910286813847db60f9da</h4>
+</ul>
+
+<hr>
+
+<ul>
+ <li>
+  Estudo: Levitin – Cap. 9 (318–322, 325–331)
+ </li>
+ <li>
+  Estudo: Shaffer – Cap. 6 (199–206) + 11 (393–399)
+ </li>
+  <h4>https://coggle.it/diagram/Yyr4TUCwZkiUmD32/t/-/c908aa96ac2d36c4298eebbdea072813deee8165f7a6ae2df27841be2dc9a256</h4>
+</ul>
+
+
 ## Plano de Ensino
 #### Slides : https://drive.google.com/drive/u/0/folders/16Og0ScIsyLaf-NcV_NLDnIjITvDMezB-
 <ul>
@@ -170,9 +195,9 @@ Estudos baseado nos livros:
 <li>Heaps e heapsort :white_check_mark:</li>
 <li>Estruturas para relações de equivalência :white_check_mark:</li>
 <li>Grafos :white_check_mark:</li>
-<li>Busca em profundidade e busca em largura</li>
-<li>Caminhos mínimos (Dijkstra, Bellman-Ford, Floyd-Warshall)</li>
-<li>Árvores geradoras de custo mínimo (Prim, Kruskal)</li>
+<li>Busca em profundidade e busca em largura :white_check_mark:</li>
+<li>Caminhos mínimos (Dijkstra, Bellman-Ford, Floyd-Warshall :white_check_mark:)</li>
+<li>Árvores geradoras de custo mínimo (Prim, Kruskal) :white_check_mark:</li>
 <li>Computabilidade e complexidade computacional</li>
 <li>Heurísticas para problemas intratáveis</li>
 <li>Backtracking</li>
