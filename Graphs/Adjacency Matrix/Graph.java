@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Graph {
     int[][] matrix;
@@ -13,7 +14,7 @@ public class Graph {
     }
 
     public int first(int v) {
-        for (int i = 0; i < this.matrix.length; i++) {
+        for (int i = 0; i < this.matrix.length -1; i++) {
             if (this.matrix[v][i] != 0) {
                 return i;
             }
@@ -77,11 +78,11 @@ public class Graph {
     }
 
     public void preVisit(int v) {
-       
+        System.out.println("value: " + v);
     }
 
     public void posVisit(int v) {
-      
+        System.out.println("value: " + v);
     }
 
     public void graphTraverseBFS() {
@@ -101,12 +102,12 @@ public class Graph {
         q.add(start);
         this.Mark[start] = 1;
 
-        while(q.size() > 0) {
+        while (q.size() > 0) {
             int v = q.remove();
             preVisit(v);
             int weight = first(v);
-            while(weight < this.matrix.length) {
-                if(this.Mark[weight] == 0) {
+            while (weight < this.matrix.length) {
+                if (this.Mark[weight] == 0) {
                     this.Mark[weight] = 1;
                     q.add(weight);
                 }
@@ -116,4 +117,16 @@ public class Graph {
         }
 
     }
-}
+        public void topologicalSort(int v, Stack<Integer> stack) {
+            this.Mark[v] = 1;
+            int weight = this.first(v);
+            while(weight < this.matrix.length) {
+                if(this.Mark[v] == 0) {
+                    topologicalSort(weight, stack);
+                }
+                weight = next(v, weight);
+            }
+            stack.push(v);
+        }
+    }
+
