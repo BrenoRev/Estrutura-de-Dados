@@ -173,6 +173,18 @@ Estudos baseado nos livros:
   <h4>https://coggle.it/diagram/Yyr4TUCwZkiUmD32/t/-/c908aa96ac2d36c4298eebbdea072813deee8165f7a6ae2df27841be2dc9a256</h4>
 </ul>
 
+<hr>
+
+<ul>
+ <li>
+  Estudo: Levitin – Cap. 9 (283–296) + 12 (441–457)
+ </li>
+ <li>
+  Estudo: Shaffer – Cap. 16 (509–513)
+ </li>
+  <h4>https://coggle.it/diagram/Y0lbhBWolSW_Kv_0/t/-/8f9129b23c8a115813d759261a0a0c42060222b5aceea18705600b19b6b25c70</h4>
+</ul>
+
 
 ## Plano de Ensino
 #### Slides : https://drive.google.com/drive/u/0/folders/16Og0ScIsyLaf-NcV_NLDnIjITvDMezB-
@@ -198,9 +210,9 @@ Estudos baseado nos livros:
 <li>Busca em profundidade e busca em largura :white_check_mark:</li>
 <li>Caminhos mínimos (Dijkstra, Bellman-Ford, Floyd-Warshall :white_check_mark:)</li>
 <li>Árvores geradoras de custo mínimo (Prim, Kruskal) :white_check_mark:</li>
-<li>Computabilidade e complexidade computacional</li>
-<li>Heurísticas para problemas intratáveis</li>
-<li>Backtracking</li>
-<li>Branch & bound</li>
-<li>Programação dinâmica</li>
+<li>Computabilidade e complexidade computacional :white_check_mark:</li>
+<li>Heurísticas para problemas intratáveis :white_check_mark:</li>
+<li>Backtracking :white_check_mark:</li>
+<li>Branch & bound :white_check_mark:</li>
+<li>Programação dinâmica :white_check_mark:</li>
 </ul>
