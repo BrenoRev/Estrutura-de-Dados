@@ -177,25 +177,14 @@ Estudos baseado nos livros:
 
 <ul>
  <li>
-  Estudo: Levitin – Cap. 11 (401–409)
+  Estudo: Levitin – Cap. 9 (283–296) + 12 (441–457)
  </li>
  <li>
-  Estudo: Shaffer – Cap. 17 (535–551, 555–561)
+  Estudo: Shaffer – Cap. 16 (509–513)
  </li>
-  <h4>https://coggle.it/diagram/Yzcee0CwZkiUiqBB/t/m15/c9efb94dd86f2c2cc8d5b9269661408ba68295083b382ec69838c6b35f18d0a6</h4>
+  <h4>https://coggle.it/diagram/Y0lbhBWolSW_Kv_0/t/-/8f9129b23c8a115813d759261a0a0c42060222b5aceea18705600b19b6b25c70</h4>
 </ul>
 
-<hr>
-
-<ul>
- <li>
-  Estudo: Levitin – Cap. 12 (423–440)
- </li>
- <li>
-  Estudo: Shaffer – Cap. 17 (552–555)
- </li>
-  <h4>https://coggle.it/diagram/Y0OL1cLcldEl6C2c/t/m16/86dd31d7db855f89f503bbce7d0dc490b6f46158a3f40677be550ee1ec5c2f45</h4>
-</ul>
 
 ## Plano de Ensino
 #### Slides : https://drive.google.com/drive/u/0/folders/16Og0ScIsyLaf-NcV_NLDnIjITvDMezB-
