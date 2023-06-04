@@ -17,7 +17,7 @@ Estudos baseado nos livros:
  <li>
   Estudo: Shaffer – Cap. 7 (231–235, 237–239, 241–244)
  </li>
-  <h4>https://coggle.it/diagram/YugBOGqIBdEc_5Su/t/m7</h4>
+  <h4>https://coggle.it/diagram/YsIBl-PT1iLZ8I1p/t/m1/a5473d5aa51fbf204846624b6387cd5da62e2680f1320c2d07dee5db7367b695</h4>
 </ul>
 
 <hr>
@@ -53,7 +53,7 @@ Estudos baseado nos livros:
  <li>
   Estudo: Levitin – Cap. 2 (41–50, 52–58, 61–66, 70–73, 84–89, 91–95) + 3 (97–98)
  </li>
-  <h4>https://coggle.it/diagram/YtDk8bndxQl8w4BR/t/an%C3%A1lise-de-algoritmo</h4>
+  <h4>https://coggle.it/diagram/YtDk8bndxQl8w4BR/t/an%C3%A1lise-de-algoritmo/a71b07949223e13b7941219f8f06fb6a6e87404b40feb00bde96ad634e2d99eb</h4>
 </ul>
 
 <hr>
