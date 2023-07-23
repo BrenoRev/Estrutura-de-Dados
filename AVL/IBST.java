@@ -1,4 +1,4 @@
-package Main;
+package AVL;
 
 public interface IBST<E, V> {
     V find(BST<E, V> bst, E key);
@@ -7,7 +7,7 @@ public interface IBST<E, V> {
 
     void insert(BST<E, V> rt, E key, V value);
 
-    BSTNode<E, V> insertHelp(BSTNode<E, V> rt,E key, V value);
+    BSTNode<E, V> insertHelp(BSTNode<E, V> rt, E key, V value);
 
     V remove(BST<E, V> bst, E key);
 

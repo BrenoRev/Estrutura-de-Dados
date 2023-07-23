@@ -1,9 +1,10 @@
-public class Queue<E> implements  IQueue<E>{
+package Queue;
+
+public class Queue<E> implements IQueue<E> {
 
     private Link<E> front;
     private Link<E> rear;
     private int size;
-
 
     public Queue() {
         this.front = this.rear = new Link(null);
@@ -24,11 +25,11 @@ public class Queue<E> implements  IQueue<E>{
 
     @Override
     public E dequeue() {
-        if(this.size == 0) {
+        if (this.size == 0) {
             throw new IllegalArgumentException("Tamanho zerado");
         }
         E item = (E) this.front.getNext().getElement();
-        if(this.front.getNext() == null) {
+        if (this.front.getNext() == null) {
             this.rear = this.front;
         }
 

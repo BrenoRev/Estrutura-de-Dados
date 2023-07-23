@@ -1,4 +1,6 @@
-public class Stack<E> implements IStack<E>{
+package Stack;
+
+public class Stack<E> implements IStack<E> {
 
     Link<E> top;
     int size;
@@ -22,7 +24,7 @@ public class Stack<E> implements IStack<E>{
 
     @Override
     public E pop() {
-        if(this.top == null) {
+        if (this.top == null) {
             throw new IllegalArgumentException("Tamanho nulo");
         }
 

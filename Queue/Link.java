@@ -1,3 +1,5 @@
+package Queue;
+
 public class Link<E> {
     private E element;
     private Link next;
@@ -31,7 +33,5 @@ public class Link<E> {
     public String toString() {
         return "Link [element=" + element + ", next=" + next + "]";
     }
-
-
 
 }

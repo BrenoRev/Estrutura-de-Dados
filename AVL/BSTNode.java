@@ -1,4 +1,4 @@
-package Main;
+package AVL;
 
 public class BSTNode<E, V> {
 
@@ -55,5 +55,4 @@ public class BSTNode<E, V> {
         this.height = height;
     }
 
-    
 }

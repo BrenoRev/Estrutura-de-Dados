@@ -1,4 +1,4 @@
-package Main;
+package AVL;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,72 +15,69 @@ public class Main {
 
         int operations = reader.nextInt();
 
-        for(int index = 0; index < operations; index++) {
+        for (int index = 0; index < operations; index++) {
             int command = reader.nextInt();
-            if(command == 1){
+            if (command == 1) {
                 int value = reader.nextInt();
                 avlTree.insert(avlTree, value, value);
-            }
-            else if(command == 2){
+            } else if (command == 2) {
                 int findKey = reader.nextInt();
                 Integer result = avlTree.find(avlTree, findKey);
-                if(result == null) {
+                if (result == null) {
                     System.out.println("Data tidak ada");
-                }
-                else {
+                } else {
                     System.out.println(result);
                 }
             }
         }
-        
+
     }
 
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
 
-static class FastReader {
-    BufferedReader br;
-    StringTokenizer st;
+        public FastReader() {
+            br = new BufferedReader(
+                    new InputStreamReader(System.in));
+        }
 
-    public FastReader() {
-        br = new BufferedReader(
-                new InputStreamReader(System.in));
-    }
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
 
-    String next() {
-        while (st == null || !st.hasMoreElements()) {
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            String str = "";
             try {
-                st = new StringTokenizer(br.readLine());
+                if (st.hasMoreTokens()) {
+                    str = st.nextToken("\n");
+                } else {
+                    str = br.readLine();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            return str;
         }
-        return st.nextToken();
     }
-
-    int nextInt() {
-        return Integer.parseInt(next());
-    }
-
-    long nextLong() {
-        return Long.parseLong(next());
-    }
-
-    double nextDouble() {
-        return Double.parseDouble(next());
-    }
-
-    String nextLine() {
-        String str = "";
-        try {
-            if (st.hasMoreTokens()) {
-                str = st.nextToken("\n");
-            } else {
-                str = br.readLine();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return str;
-    }
-}
 
 }

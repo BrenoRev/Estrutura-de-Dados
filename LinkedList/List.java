@@ -1,3 +1,5 @@
+package LinkedList;
+
 public class List<E> {
     private Link<E> head;
     private Link<E> tail;
@@ -41,12 +43,12 @@ public class List<E> {
     }
 
     public E remove() {
-        if(this.current.getNext() == null) {
+        if (this.current.getNext() == null) {
             return null;
         }
         E element = (E) this.current.getNext().getElement();
 
-        if(this.tail == this.current.getNext()) {
+        if (this.tail == this.current.getNext()) {
             this.tail = this.current;
         }
 
@@ -59,8 +61,8 @@ public class List<E> {
     public int countValues(E value) {
         int count = 0;
         Link<E> temporary = this.head.getNext();
-        while(temporary != null) {
-            if(temporary.getElement().equals(value)) {
+        while (temporary != null) {
+            if (temporary.getElement().equals(value)) {
                 count++;
             }
             temporary = temporary.getNext();

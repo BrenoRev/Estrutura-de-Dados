@@ -1,3 +1,5 @@
+package Stack;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,25 +13,24 @@ public class Main {
         FastReader scanner = new FastReader();
         Stack<Integer> stack = new Stack();
         int cases = scanner.nextInt();
-        for(int i = 0; i < cases; i++) {
+        for (int i = 0; i < cases; i++) {
             String entrada = scanner.next();
             do {
-                if(entrada.equals("push")){
+                if (entrada.equals("push")) {
                     int value = scanner.nextInt();
                     stack.push(value);
-                }
-                else if(entrada.equals("pop")){
+                } else if (entrada.equals("pop")) {
                     int value = scanner.nextInt();
                     int sum = 0;
-                    if(value <= stack.length()){
-                        for(int j = 0; j < value; j++) {
+                    if (value <= stack.length()) {
+                        for (int j = 0; j < value; j++) {
                             sum += stack.pop();
                         }
                     }
                     System.out.println(sum);
                 }
                 entrada = scanner.next();
-            } while(!(entrada.equals("end")));
+            } while (!(entrada.equals("end")));
         }
     }
 

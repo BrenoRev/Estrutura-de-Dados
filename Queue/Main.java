@@ -1,3 +1,5 @@
+package Queue;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -6,7 +8,6 @@ public class Main {
         // Breno silva
 
         Queue<Integer> queue = new Queue<>();
-
 
     }
 }

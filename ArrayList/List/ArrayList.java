@@ -1,6 +1,6 @@
-package List;
+package ArrayList.List;
 
-import interfaces.IArrayList;
+import ArrayList.interfaces.IArrayList;
 
 public class ArrayList<E> implements IArrayList<E> {
 
@@ -23,7 +23,7 @@ public class ArrayList<E> implements IArrayList<E> {
     @Override
     public void clear() {
         int i = 0;
-        while(i  <= this.maxSize) {
+        while (i <= this.maxSize) {
             elementos[i] = null;
         }
     }
@@ -31,24 +31,24 @@ public class ArrayList<E> implements IArrayList<E> {
     @Override
     public E insert(E element) {
         this.aumentaCapacidade();
-        if (this.listSize < this.elementos.length){
-			this.elementos[this.listSize] = element;
-			this.listSize++;
-		} 
+        if (this.listSize < this.elementos.length) {
+            this.elementos[this.listSize] = element;
+            this.listSize++;
+        }
 
         return element;
     }
 
     @Override
     public E remove() {
-        if(this.current < 0 || this.current  >= this.listSize) {
+        if (this.current < 0 || this.current >= this.listSize) {
             return null;
         }
-        
-        E item = this.elementos[this.current];
-        int indexCurrent = this.current -1;
 
-        while(indexCurrent < this.listSize - 1) {
+        E item = this.elementos[this.current];
+        int indexCurrent = this.current - 1;
+
+        while (indexCurrent < this.listSize - 1) {
             elementos[indexCurrent] = elementos[indexCurrent + 1];
             indexCurrent++;
         }
@@ -70,14 +70,14 @@ public class ArrayList<E> implements IArrayList<E> {
 
     @Override
     public void prev() {
-        if(this.current != 0) {
+        if (this.current != 0) {
             this.current--;
         }
     }
 
     @Override
     public void next() {
-        if(this.current < listSize) {
+        if (this.current < listSize) {
             this.current++;
         }
     }
@@ -94,7 +94,7 @@ public class ArrayList<E> implements IArrayList<E> {
 
     @Override
     public void moveToPosition(int position) {
-        if(position < listSize || position > 0) {
+        if (position < listSize || position > 0) {
             this.current = position;
         }
     }
@@ -102,8 +102,8 @@ public class ArrayList<E> implements IArrayList<E> {
     @Override
     public E getValue(E value) {
         moveToStart();
-        while(this.current < this.listSize) {
-            if(this.elementos[this.current] == value) {
+        while (this.current < this.listSize) {
+            if (this.elementos[this.current] == value) {
                 return this.elementos[this.current];
             }
             next();
@@ -111,21 +111,21 @@ public class ArrayList<E> implements IArrayList<E> {
         return null;
     }
 
-    private void aumentaCapacidade(){
-		if (this.listSize == this.elementos.length){
-			E[] elementosNovos = (E[]) new Object[this.elementos.length * 2];
-			for (int i=0; i< this.elementos.length; i++){
-				elementosNovos[i] = this.elementos[i];
-			}
-			this.elementos = elementosNovos;
-		}
-	}
+    private void aumentaCapacidade() {
+        if (this.listSize == this.elementos.length) {
+            E[] elementosNovos = (E[]) new Object[this.elementos.length * 2];
+            for (int i = 0; i < this.elementos.length; i++) {
+                elementosNovos[i] = this.elementos[i];
+            }
+            this.elementos = elementosNovos;
+        }
+    }
 
     @Override
     public Integer countValues(E value) {
         int count = 0;
-        for(int index = 0; index < listSize; index++) {
-            if(this.elementos[index] == value) {
+        for (int index = 0; index < listSize; index++) {
+            if (this.elementos[index] == value) {
                 count++;
             }
         }

@@ -1,4 +1,4 @@
-package Main;
+package AVL;
 
 public class BST<E, V> implements IBST<E, V> {
     private BSTNode<E, V> root;

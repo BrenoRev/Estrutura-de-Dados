@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
     // coded by
     // Breno Silva
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (sc.hasNext()) {
@@ -49,10 +49,15 @@ public class Main {
 
 interface IStack<E> {
     void clear();
+
     void push(E element);
+
     E pop();
+
     E topValue();
+
     int size();
+
     E peek();
 }
 
@@ -90,11 +95,9 @@ class Link<E> {
         return "Link [element=" + element + ", next=" + next + "]";
     }
 
-
-
 }
 
- class Pilha<E> implements IStack<E>{
+class Pilha<E> implements IStack<E> {
     Link<E> top;
     int size;
 
@@ -117,7 +120,7 @@ class Link<E> {
 
     @Override
     public E pop() {
-        if(this.top == null) {
+        if (this.top == null) {
             throw new IllegalArgumentException("Tamanho nulo");
         }
 
@@ -139,7 +142,7 @@ class Link<E> {
 
     @Override
     public E peek() {
-        if(this.top == null) {
+        if (this.top == null) {
             throw new IllegalArgumentException("Tamanho nulo");
         }
         return this.top.getElement();

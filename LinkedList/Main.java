@@ -1,3 +1,5 @@
+package LinkedList;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,21 +13,20 @@ public class Main {
         FastReader reader = new FastReader();
         List<Integer> lista = new List<>();
         int cases = reader.nextInt();
-        for(int index = 0; index < cases; index++) {
+        for (int index = 0; index < cases; index++) {
             int operations = reader.nextInt();
-            for(int j = 0; j < operations; j++) {
+            for (int j = 0; j < operations; j++) {
                 String input = reader.next();
-                if(input.equals("insert")) {
+                if (input.equals("insert")) {
                     int value = reader.nextInt();
                     lista.insert(value);
-                } else if(input.equals("remove")) {
+                } else if (input.equals("remove")) {
                     lista.remove();
-                }
-                else if(input.equals("prev")) {
+                } else if (input.equals("prev")) {
                     lista.prev();
-                } else if(input.equals("next")) {
+                } else if (input.equals("next")) {
                     lista.next();
-                } else if(input.equals("count")) {
+                } else if (input.equals("count")) {
                     int value = reader.nextInt();
                     System.out.println(lista.countValues(value));
                 }
