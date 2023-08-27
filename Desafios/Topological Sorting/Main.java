@@ -1,108 +1,88 @@
-import java.io.*;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
-class Main  {
+public class Main {
+
     // Coded By
-    // Breno
-    public static HashMap<Integer, ArrayList<Integer>> adjListOut = new HashMap<Integer, ArrayList<Integer>>();
-   
-    public static void printAsnwer(BufferedWriter bw, int numTasks, ArrayList<Integer> seqTasks) throws NumberFormatException, IOException {
-        if (seqTasks.size() < numTasks) {
-            bw.write("Sandro fails.\n");
-        }
-        else {
-            for (int i = 0; i < seqTasks.size()-1; i++) {
-                bw.write(seqTasks.get(i) + " ");
+    // Breno Silva
+
+    public static void main(String[] args) throws Exception {
+        BufferedReader leitor = new BufferedReader(new InputStreamReader(System.in));
+        int quantidadeCasos = Integer.parseInt(leitor.readLine());
+
+        for (int casoAtual = 1; casoAtual <= quantidadeCasos; casoAtual++) {
+            StringTokenizer st = new StringTokenizer(leitor.readLine());
+            int n = Integer.parseInt(st.nextToken());
+            int m = Integer.parseInt(st.nextToken());
+            int origem = Integer.parseInt(st.nextToken());
+            int destino = Integer.parseInt(st.nextToken());
+
+            ArrayList<Aresta>[] listaArestas = new ArrayList[n];
+
+            for (int i = 0; i < m; i++) {
+                st = new StringTokenizer(leitor.readLine());
+                int orig = Integer.parseInt(st.nextToken());
+                int dest = Integer.parseInt(st.nextToken());
+                int custo = Integer.parseInt(st.nextToken());
+
+                if (listaArestas[orig] == null)
+                    listaArestas[orig] = new ArrayList<>();
+                listaArestas[orig].add(new Aresta(orig, dest, custo));
+
+                if (listaArestas[dest] == null)
+                    listaArestas[dest] = new ArrayList<>();
+                listaArestas[dest].add(new Aresta(dest, orig, custo));
             }
-            bw.write(seqTasks.get(seqTasks.size()-1) + "\n");
+
+            int[] custos = new int[n];
+            Arrays.fill(custos, Integer.MAX_VALUE);
+            dijkstra(listaArestas, custos, origem, destino);
+
+            if (custos[destino] != Integer.MAX_VALUE)
+                System.out.println("Case #" + casoAtual + ": " + custos[destino]);
+            else
+                System.out.println("Case #" + casoAtual + ": unreachable");
         }
     }
-   
-    public static void toposort(int numTasks, int[] degrees, ArrayList<Integer> seqTasks) {
-        Queue<Integer> zeroDegree = new PriorityQueue<Integer>();
-        for (int i = 1; i <= numTasks; i++) {
-            if (degrees[i] == 0) {
-                zeroDegree.add(i);
-            }
+
+    public static class Aresta implements Comparable<Aresta> {
+        private int custo;
+        private int origem;
+        private int destino;
+
+        public Aresta(int origem, int destino, int custo) {
+            this.origem = origem;
+            this.custo = custo;
+            this.destino = destino;
         }
-       
-        while (zeroDegree.size() > 0) {
-            int currTask = zeroDegree.poll();
-            seqTasks.add(currTask);
-            ArrayList<Integer> list = adjListOut.get(currTask);
-            for (int i = 0; i < list.size(); i++) {
-                degrees[list.get(i)]--;
-                if (degrees[list.get(i)] == 0) {
-                    zeroDegree.add(list.get(i));
+
+        public int compareTo(Aresta aresta) {
+            return this.custo - aresta.custo;
+        }
+    }
+
+    public static void dijkstra(ArrayList<Aresta>[] listaArestas, int[] menorCusto, int origem, int destino) {
+        menorCusto[origem] = 0;
+
+        PriorityQueue<Aresta> fila = new PriorityQueue<>();
+        fila.add(new Aresta(origem, origem, 0));
+
+        while (!fila.isEmpty()) {
+            Aresta arestaAtual = fila.poll();
+            if (arestaAtual.destino == destino)
+                break;
+            else if (listaArestas[arestaAtual.destino] != null) {
+                for (Aresta aresta : listaArestas[arestaAtual.destino]) {
+                    if (menorCusto[aresta.destino] > menorCusto[aresta.origem] + aresta.custo) {
+                        menorCusto[aresta.destino] = menorCusto[aresta.origem] + aresta.custo;
+                        fila.offer(new Aresta(aresta.origem, aresta.destino, menorCusto[aresta.destino]));
+                    }
                 }
             }
         }
-    }
-   
-    public static void readDependencies(BufferedReader br, int numDependencies, int[] degrees) throws NumberFormatException, IOException {
-        for (int i = 0; i < numDependencies; i++) {
-            int task1 = reader(br);
-            int task2 = reader(br);
-            adjListOut.get(task1).add(task2);
-            degrees[task2]++;
-        }
-    }
-   
-    public static void initAdjList(int numTasks) {
-        for (int i = 1; i <= numTasks; i++) {
-            adjListOut.put(i, new ArrayList<Integer>());
-        }
-    }
-   
-    static int reader(BufferedReader br) throws NumberFormatException, IOException {     
-        int n;
-        int resp = 0;      
-      
-        while (true) {         
-            n = br.read();         
-            if (n >= '0' && n <= '9') {
-                break;
-            } 
-        }
-           
-        while (true) {         
-            resp = resp*10 + n-'0';         
-            n = br.read();         
-            if (n < '0' || n > '9') {
-                break;     
-            }
-        }
-      
-        return resp;     
-    }
-   
-    public static void process() throws NumberFormatException, IOException {   
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-       
-        int numTasks = reader(br);
-        int numDependencies = reader(br);
-       
-        initAdjList(numTasks);
-       
-        int[] degrees = new int[numTasks+1];
-        readDependencies(br, numDependencies, degrees);
-       
-        ArrayList<Integer> seqTasks = new ArrayList<Integer>();
-        toposort(numTasks, degrees, seqTasks);
-       
-        printAsnwer(bw, numTasks, seqTasks);
-       
-        bw.flush();
-        bw.close();
-               
-        return;
-    }
-   
-    public static void main(String[] args) throws NumberFormatException, IOException {
-        Main m = new Main();
-        m.process();
-
-        System.exit(0);
     }
 }

@@ -1,62 +1,54 @@
-https://vjudge.net/problem/SPOJ-TOPOSORT
+Sending email UVA - 10986 
 
-Sandro is a well organised person. Every day he makes a list of things which need to be done and enumerates them from 1 to n. However, some things need to be done before others. In this task you have to find out whether Sandro can solve all his duties and if so, print the correct order.
+There are n SMTP servers connected by network cables. Each of the m cables connects two computers and has a certain latency measured in milliseconds required to send an email message. What
+is the shortest time required to send a message from server S to server T along a sequence of cables?
+Assume that there is no delay incurred at any of the servers.
+
 
 Input
 
 <hr>
 
-In the first line you are given an integer n and m (1<=n<=10000, 1<=m<=1000000). On the next m lines there are two distinct integers x and y, (1<=x,y<=10000) describing that job x needs to be done before job y.
+The first line of input gives the number of cases, N. N test cases follow. Each one starts with a line
+containing n (2 ≤ n ≤ 20000), m (0 ≤ m ≤ 50000), S (0 ≤ S < n) and T (0 ≤ T < n). S ̸= T. The
+next m lines will each contain 3 integers: 2 different servers (in the range [0, n − 1]) that are connected
+by a bidirectional cable and the latency, w, along this cable (0 ≤ w ≤ 10000).
 
 Output
 
 <hr>
 
-Print "Sandro fails." if Sandro cannot complete all his duties on the list. If there is a solution print the correct ordering, the jobs to be done separated by a whitespace. If there are multiple solutions print the one, whose first number is smallest, if there are still multiple solutions, print the one whose second number is smallest, and so on.
+For each test case, output the line ‘Case #x:’ followed by the number of milliseconds required to send
+a message from S to T. Print ‘unreachable’ if there is no route from S to T.
 
 Example 1
 
 Input:
 
-8 9
+3
 
-1 4
+2 1 0 1
 
-1 2
+0 1 100
 
-4 2
+3 3 2 0
 
-4 3
+0 1 100
 
-3 2
+0 2 200
 
-5 2
+1 2 50
 
-3 5
+2 0 0 1
 
-8 2
 
-8 6
 
 <hr>
 
 Output:
 
-1 4 3 5 7 8 2 6 
+Case #1: 100
 
-Example 2
+Case #2: 150
 
-<hr>
-Input:
-
-2 2
-
-1 2
-
-2 1
-
-<hr>
-
-Output:
-
-Sandro fails.
+Case #3: unreachable
