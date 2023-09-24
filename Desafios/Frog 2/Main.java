@@ -1,160 +1,66 @@
-import java.io.OutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.util.Arrays;
-import java.io.BufferedWriter;
-import java.util.InputMismatchException;
-import java.util.OptionalInt;
-import java.io.Writer;
-import java.io.OutputStreamWriter;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
         // Coded By
-        // Breno
-        InputStream inputStream = System.in;
-        OutputStream outputStream = System.out;
-        InputReader in = new InputReader(inputStream);
-        OutputWriter out = new OutputWriter(outputStream);
-        BFrog2 solver = new BFrog2();
-        solver.solve(1, in, out);
-        out.close();
+        // Breno Silva
+
+    public static void main(String[] args) {
+        FastReader in = new FastReader();
+        StringBuilder out = new StringBuilder();
+        BFrog solver = new BFrog();
+        solver.solve(in, out);
+        System.out.print(out);
     }
 
-    static class BFrog2 {
+    static class BFrog {
         int n;
         int k;
         int[] height;
-        OutputWriter out;
 
-        public void solve(int testNumber, InputReader in, OutputWriter out) {
-            n = in.readInt();
-            k = in.readInt();
-            height = in.readIntArray(n);
-            this.out = out;
-            solution();
-        }
+        public void solve(FastReader in, StringBuilder out) {
+            n = in.nextInt();
+            k = in.nextInt();
+            height = new int[n];
+            for (int i = 0; i < n; i++) {
+                height[i] = in.nextInt();
+            }
 
-        private void solution() {
-            int dp[] = new int[n];
+            int[] dp = new int[n];
             dp[0] = 0;
+            
             for (int i = 1; i < n; i++) {
                 int min_value = Integer.MAX_VALUE;
-                for (int j = i - 1; (j >= i - k) && (j >= 0); j--) {
-                    min_value = min(min_value, dp[j] + abs(height[j] - height[i]));
+                for (int j = i - 1; j >= Math.max(0, i - k); j--) {
+                    min_value = Math.min(min_value, dp[j] + Math.abs(height[j] - height[i]));
                 }
                 dp[i] = min_value;
             }
-            out.printLine(dp[n - 1]);
+            out.append(dp[n - 1]).append("\n");
         }
-
-        int min(int... ar) {
-            OptionalInt val = Arrays.stream(ar).min();
-            return val.isPresent() ? val.getAsInt() : Integer.MAX_VALUE;
-        }
-
-        int abs(int a) {
-            return Math.abs(a);
-        }
-
     }
 
-    static class InputReader {
-        private InputStream stream;
-        private byte[] buf = new byte[1024];
-        private int curChar;
-        private int numChars;
-        private InputReader.SpaceCharFilter filter;
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
 
-        public InputReader(InputStream stream) {
-            this.stream = stream;
+        public FastReader() {
+            br = new BufferedReader(new InputStreamReader(System.in));
         }
 
-        public int[] readIntArray(int size) {
-            int[] array = new int[size];
-            for (int i = 0; i < size; i++) {
-                array[i] = readInt();
-            }
-            return array;
-        }
-
-        public int read() {
-            if (numChars == -1) {
-                throw new InputMismatchException();
-            }
-            if (curChar >= numChars) {
-                curChar = 0;
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
                 try {
-                    numChars = stream.read(buf);
+                    st = new StringTokenizer(br.readLine());
                 } catch (IOException e) {
-                    throw new InputMismatchException();
-                }
-                if (numChars <= 0) {
-                    return -1;
+                    e.printStackTrace();
                 }
             }
-            return buf[curChar++];
+            return st.nextToken();
         }
 
-        public int readInt() {
-            int c = read();
-            while (isSpaceChar(c)) {
-                c = read();
-            }
-            int sgn = 1;
-            if (c == '-') {
-                sgn = -1;
-                c = read();
-            }
-            int res = 0;
-            do {
-                if (c < '0' || c > '9') {
-                    throw new InputMismatchException();
-                }
-                res *= 10;
-                res += c - '0';
-                c = read();
-            } while (!isSpaceChar(c));
-            return res * sgn;
+        int nextInt() {
+            return Integer.parseInt(next());
         }
-
-        public boolean isSpaceChar(int c) {
-            if (filter != null) {
-                return filter.isSpaceChar(c);
-            }
-            return isWhitespace(c);
-        }
-
-        public static boolean isWhitespace(int c) {
-            return c == ' ' || c == '\n' || c == '\r' || c == '\t' || c == -1;
-        }
-
-        public interface SpaceCharFilter {
-            public boolean isSpaceChar(int ch);
-
-        }
-
-    }
-
-    static class OutputWriter {
-        private final PrintWriter writer;
-
-        public OutputWriter(OutputStream outputStream) {
-            writer = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
-        }
-
-        public OutputWriter(Writer writer) {
-            this.writer = new PrintWriter(writer);
-        }
-
-        public void close() {
-            writer.close();
-        }
-
-        public void printLine(int i) {
-            writer.println(i);
-        }
-
     }
 }
