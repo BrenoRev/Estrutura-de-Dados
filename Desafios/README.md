@@ -1,1 +1,1 @@
-<center><h2>Desafios de código da disciplina IF-672 da plataforma VJudge</h2></center>
+<center><h2>Desafios de código</h2></center>
